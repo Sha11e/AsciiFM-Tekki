@@ -26,7 +26,7 @@ implements Command {
     @Override
     public void handleMessage(PircBot bot, String channel, String hostname, String message, String commandPrefix, HashMap<String, String> authToUser) {
 	if (message.isEmpty()) {
-            String uname = authToUser.get(hostname);
+            String uname = authToUser.get(hostname.toLowerCase());
             if (uname == null) {
                 String usage = "Usage: \"" + commandPrefix + "Lastfm <username>\" or associate your hostname with a username: \"" + commandPrefix + "SetLastfm <username>\" so that you can simply do \"" + commandPrefix + "Lastfm\"";
                 bot.sendMessage(channel, usage);
